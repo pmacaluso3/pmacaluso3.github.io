@@ -1,0 +1,33 @@
+html {
+	background-color: #FF5C33;
+}
+
+main {
+	
+	margin: 2em 5em 2em 5em;
+}
+
+img {
+	display: block;
+	border: 3px solid black;
+}
+
+.title {
+	font-size: 2em;
+	font-weight: bold;
+	display: inline-block;
+	float: left;
+}
+
+.date {
+	font-size: 2em;
+	display: inline-block;
+	float: right;
+}
+
+.subtitle {
+	font-size: 1.5em;
+	font-style: italic;
+	clear: both;
+}
+
