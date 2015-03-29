@@ -1,0 +1,83 @@
+html {
+	background-color: #FF5C33;
+}
+
+img {
+	border: 2px solid black;
+	margin: 20px;
+}
+
+header {
+	font-family: 'Press Start 2P', cursive;
+	font-size: 2.5em;
+	border-bottom: 3px #999999 solid;
+	text-align: center;
+	padding: 30px;
+}
+
+.projects {
+	display: inline-block;
+	float: left;
+	margin: 10px;
+}
+
+section {
+	float: left;
+}
+
+.project-content {
+	position: relative;
+	display: block;
+	margin: 0px 10px 10px 10px;
+}
+
+.project-title {
+	font-size: 2em;
+	text-decoration: underline;
+	font-family: 'Karla', sans-serif;
+	margin-top: 30px;
+}
+
+.project-description {
+	vertical-align: top;
+	height: 180px;
+}
+
+.projects {
+	display: inline-block;
+	float: left;
+	margin: 10px;
+}
+
+#rightbar {
+	display: inline-block;
+	float: right;
+	width: 20%;
+	height: 100%;
+	border-left: solid 3px #999999;
+}
+
+.bio {
+	padding: 20px;
+	border-bottom: solid 3px #999999;
+}
+
+
+.to-bottom {
+	padding: 20px 20px 0px 20px;
+	height: 100%;
+}
+
+.to-bottom {
+	height: 100%;
+}
+
+
+footer {
+	font-family: 'Press Start 2P', cursive;
+	font-size: .7em;
+	border-top: 3px #999999 solid;
+	text-align: center;
+	padding-top: 30px;
+	clear: both;
+}
