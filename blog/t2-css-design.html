@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+
+  <title>The Pseudo-Coder</title>
+   <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/blog-stylesheet.css" />
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu:400italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+</head>
+
+<main>
+  <div>
+    <img src="../blog-photo-0.png">
+  </div>
+
+  <div class="title">
+    Week 2: Laying it all out there
+  </div>
+
+  <div class="date">
+    3/20/2015
+  </div>
+
+  <div class="subtitle">
+    
+  </div>
+  
+  <p>
+    This week was all about laying out and formatting the contents of a website to look the way you want. The scheme for doing this is basically broken down into two major realms: HTML and CSS. HTML stands for HyperText Markup Language, and CSS stands for Cascading Style Sheets, and that might as well be Greek. Here's a more reasonable interpretation: HTML is how you build the functional skeleton of your website, and CSS is how you style it.
+  </p>
+  <p>
+    For example: "I want this word to link to this other page" is very much a question of function; it involves what you want the site to _do_ rather than how you want it to _look_. So, you would use HTML to make that link go to the correct site. Now consider: "I want this link to be green, but then blue after you click on it." That's a question of form rather than function, so you'd address that with CSS. However, CSS has another aspect that makes it super powerful. Let's take that last issue of coloring the links in your page. This week the green-blue combo is really your thing, but let's say that next week you change your mind to magenta-viridian (a bold move, in my opinion, but bold moves are oft rewarded). In a world without CSS, you'd have to go into your site code and change every single link from the old color scheme to the new one. However, in the world of technological marvels in which we live, you can use CSS to change the color properties of all the links in your page at once.
+  </p>
+  <p>
+    Awesome, right? Let's do one step better. Maybe you want some of your links to have color scheme A, and others to have color scheme B. You can accomplish this using CSS! You can create two separate tags that will correspond to your two color schemes. If your color-pairs are beige/gray and magenta/viridian, you might call your two tags "modest" and "daring", or whatever else you like. So you can ladel each link as either modest or daring, and then later, if you decide you want all your daring links to become yet more daring (say, neon pink/electric blue), you can implement your changes all at once without any troubling excitement spread to your modest links.
+  </p>
+  <p>
+    There are many more exciting aspects to this, but here's one that I found particularly illuminating. Have you ever clicked on a link and found that the site you went to displayed halfway down the scrollbar? This is accomplished using a tag called an id within the CSS code for a site. Now ask yourself this: if the same id appeared more than once in a site, how would that link know where to initiate your scrollbar? It wouldn't! So any site can only have one instance of any given id. Unfortunately, an id is also a way you can tag your items for later quick modification (as in the modest and daring links above). If you want to create a tag that can be used more than once (as in, for _all_ the modest links), then you're looking for something different: a class. Classes and id's basically both allow you to tag elements in your website for modification, but classes are used multiple times, and id's are only used once (so they can be scrolled to unambiguously).
+  </p>
+
+      
+
+</main>
+
