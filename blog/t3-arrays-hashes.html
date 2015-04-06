@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<head>
+
+  <title>The Pseudo-Coder</title>
+   <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/blog-stylesheet.css" />
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu:400italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+</head>
+
+<main>
+  <div>
+    <img src="../blog-photo-0.png">
+  </div>
+
+  <div class="title">
+    Sticking things together
+  </div>
+
+  <div class="date">
+    4/2/2015
+  </div>
+
+  <div class="subtitle">
+    ...or, using arrays and hashes in Ruby
+  </div>
+  
+  <p>
+    You've got lists, I've got lists. It's so natural to make lists that I'd bet they've been around as long as people have had things to... well, list. If you've got some best friends, you can make a best friends list. If you've got features you want in your next car, you can make a features list. In Ruby, arrays and hashes are two different ways to make a list. Both of these techniques allow you not only to organize data, but also to manipulate it (add new items, change one current item into something else, etc). I want to start by telling you about arrays.
+  </p>
+  <p>
+    Sooner or later, you're going to have to go get groceries. We're going to make an array that contains your shopping list for you. That would look like this:
+    <p>
+      <code>
+      shopping_list = ["bread","milk","eggs"]
+      </code>
+    </p>
+    A few things might immediately raise your eyebrows:
+    <p>
+      <ol>
+        <li>Why is there an underscore in <code>shopping_list</code> rather than a space?</li>
+        <li>I've been buying groceries for years and never needed to use an equal sign. Why is it there?</li>
+        <li>What are the square brackets for?</li>
+        <li>Do I need quotation marks around my groceries?</li>
+      </ol>
+    </p>
+    Answered in order:
+    <p>
+      <ol>
+        <li>Ruby uses a space to break up two thoughts in its brain. If you say "shopping list", it thinks that "shopping" and "list" are two separate things. You have to use something other than a space to convince it that they're the same thing. Remember, Ruby doesn't speak English in the same way you and I do.</li>
+        <li>An equal sign is how we tell Ruby "I want you to remember to associate this information with this label." In this case, we want it to remember to associate the items with the label <code>shopping_list</code>. The label always has to go on the left of the equal sign, and the information goes on the right. We call this "assigning" the information to the label.</li>
+        <li>The square brackets simply tell Ruby that these things will be grouped together into an array. Remember, an array is just another word for list.</li>
+        <li>Ruby only recognizes textual data if it's enclosed in quotation marks. Otherwise, it thinks it's a label that stands for something else. See how <code>shopping_list</code> wasn't enclosed in quotes? Because of this, Ruby knows it's a label rather than just some regular text.</li>
+      </ol>
+    </p>
+  </p>
+  <p>
+    Now you've got your shopping list stored in an array! Arrays can do cool things, like referring to each item in the list by number. Imagine asking the question, "What's the (first/second/etc) item on my list?" We would call the number of the item you're looking for (whether it's first, second, or whatever) the <em>index</em> of that item. In Ruby, we can ask an array to spit out the item stored at a particular index like this:
+    <p>
+      <code>shopping_list[index]</code>
+    </p>
+    except that you should use a number instead of the word "index". So in our list of items above, which would be item #1 (in other words, which item would you get if you typed <code>shopping_list[1]</code>?)
+  </p>
+  <p>Go on, look back, think about it.</p>
+  <p>
+    This was kinda a trick question, but the answer isn't unreasonable. Item #1 in our list is <em>not</em> "bread", but rather it's "milk". The very first item in a list gets assigned index 0 rather than one. So, "bread" is #0, and "eggs" is #2.
+  </p>
+  <p>
+    There will be some situations in which you'll want to refer to the items in your list by some other indicator other than their index numbers. For example, if you wanted to put your groceries in order from least expensive to most expensive, you'd need to refer to them by their prices rather than their indices. To do a trick like this, you'll need to use a hash rather than an array. A hash is a lot like an array, except that in a hash you can assign each item a reference value other that can be different from it's position number. If our grocery items had the prices listed below on the left, the way to store this information in a hash is given on the right.
+  </p>
+  <p>
+    <table>
+      <tr>
+        <td>
+          <table border="2px" >
+            <thead>
+              <tr>
+                <th colspan="2" align="center">Grocery Prices</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  Bread
+                </td>
+                <td>
+                  2.99
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Milk
+                </td>
+                <td>
+                  1.89
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Eggs
+                </td>
+                <td>
+                  1.19
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+        <td style="width:30px"></td>
+        <td>
+          <code>
+            shopping_list = {2.99 => "Bread", 1.89 => "Milk", 1.19 => "Eggs"}
+          </code>
+        </td>
+      </tr>
+    </table>
+  </p>
+  <p>
+    Here's what's going on in that code:
+  </p>
+  <p>
+    <ul>
+      <li>The curly braces simply tell Ruby that you're making a hash as opposed to an array.</li>
+      <li>The <code>=></code> symbols create pairs of items that go together. We call these "key-value pairs". The first entry of each pair is the key and the second one is the value. In this case, the key of "Bread" corresponds to the value of 2.99, and so on.</li>
+    </ul>
+  </p>
+  <p>
+    To complete our trick of referring to items by something other than their indices (remember that here, we want to refer to items by price so that we can sort them in order of expensiveness), we ask the hash for the item with any particular price. Let's ask the hash, "Which item costs 1.19?"
+  </p>
+  <p>
+    <code>
+      shopping_list[1.19]
+    </code>
+  </p>
+  <p>
+    This code will spit out the item that is associated with the key of 1.19, namely, "Eggs". Then, you could go on to ask Ruby to tell you the item that costs 1.89, and finally, the item that costs 2.99. Think about how you would write that, and check the answer at the end of this post.
+  </p>
+  <p>
+    Arrays and hashes can both be used to group items together into a list. The main difference between the two is that in an array, items are referred to by their place in the list, or index. Don't forget that the first item gets the #0 instead of #1, which can be confusing at first. In a hash, values can be referred to not by their index, but by a key that was assigned arbitrarily when the hash was made. This lets you ask for items according to some criteria other than their position in the list.
+  </p>
+  <p>
+    The answer to how you can ask a hash to give you its values associated with the keys of 1.89 and 2.99:
+  </p>
+    <p>
+    <code>
+      shopping_list[1.89]
+    </code>
+  </p>  <p>
+    <code>
+      shopping_list[2.99]
+    </code>
+  </p>
+
+
+      
+
+</main>
+
