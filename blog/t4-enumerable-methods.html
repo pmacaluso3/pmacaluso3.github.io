@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<head>
+
+  <title>The Pseudo-Coder</title>
+   <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/blog-stylesheet.css" />
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu:400italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+</head>
+
+<main>
+  <div>
+    <img src="../blog-photo-0.png">
+  </div>
+
+  <div class="title">
+    Using the Enumerable#map method in Ruby
+  </div>
+
+  <div class="date">
+    04/10/2015
+  </div>
+
+  <div class="subtitle">
+    
+  </div>
+  
+  <p>
+    At this point in exploring Ruby, we've encountered situations where we'd like to do the same (repetitive) thing to each of several variables. For example, let's say we have several variables, each of which stores a person's name, and we want to print out a greeting to each of those people. Let's keep it simple: we want to say "Hello, [name]!" to each person, where [name] will get replaced with the person's actual name.
+  </p>
+  <p>
+    The first step will be to store the names in an array, which is a type of Enumerable. You should think of Enumerable as an umbrella term in Ruby that includes list-like objects. That could include arrays, hashes, and ranges, but right now let's just focus on arrays. These objects are called Enumerables because you can enumerate (count) through the items it contains.
+  </p>
+  <p>
+    Alright, let's store our names in an array:
+  </p>
+  <p>
+    <code>
+      &nbsp;&nbsp;names = ["Peter", "Paul", "Mary"] 
+    </code>
+  </p>
+  <p>
+    So far so good. Now, we want to give this array the following instruction:
+    <ol>
+      <li>Go to the first item in the array.</li>
+      <li>For each one, print out (using a puts command) the string "Hello, " followed by the first item.</li>
+      <li>Move on to the next item in the list and repeat this process.</li>
+    </ol>
+  </p>
+  <p>
+    Here's one way we could accomplish this:
+  </p>
+  <p>
+    <code>
+      for name in names do<br>
+      &nbsp;&nbsp;puts "Hello, "+name+"!"<br>
+      end
+    </code>
+  </p>
+  <p>
+    This says: For each item in the array names, which I'm going to refer to using the word name, do the following: print out the greeting of "Hello, "+the name that you're currently on+"!". There's nothing wrong with this, but seasoned Rubyists would wrinkle their noses, because Ruby has a built in way to do this. Here's how the same instruction would look using the #map method:
+  </p>
+  <p>
+    <code>
+      names.map {|name| puts "Hello, "+name"+"!"}
+    </code>
+  </p>
+  <p>
+    The code that you would like to execute for each item in the array goes inside the curly braces instead of inside the for loop. The variable that you're going to use to identify each item inside the array goes inside the pipes instead of directly after the word for. And... that's about it for the differences! You can make the code block in the braces as complicated as you want to to create some very interesting maps.
+  </p>
+  <p>
+    Happy mapping!
+  </p>
+</main>
+

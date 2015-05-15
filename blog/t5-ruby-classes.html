@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<head>
+
+  <title>The Pseudo-Coder</title>
+   <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/blog-stylesheet.css" />
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu:400italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+</head>
+
+<main>
+  <div>
+    <img src="../blog-photo-0.png">
+  </div>
+
+  <div class="title">
+    Ruby Classes
+  </div>
+
+  <div class="date">
+    04/17/2015
+  </div>
+
+  <div class="subtitle">
+    
+  </div>
+  
+  <p>
+    Ruby is what's called an object-oriented programming language. What that means is that the code is grouped into a collection of... well, objects. The goal of this kind of grouping is to take values and behaviours that makes sense together and to assign them to one virtual item, so that they have a sense of belonging together.
+  </p>
+  <p>
+    To illustrate this a little, I'm going to make up a few properties and a behaviour, and you think of what object it seems like I'm describing. I'm thinking of something that's red, round, and bouncey... If you guessed "a ball," well done. Notice that as far as a computer is concerned, those three properties don't innately belong to a ball at all; making those associations is a human idea, a leap of intuition. That's really what object-oriented programming is all about: creating intuitive associations so that your program acts more like the world you're used to living in.
+  </p>
+  <p>
+     We could absolutely create a ball object in Ruby and give it the properties described above. Exactly how to make an individual object is the topic of another day, but you could access the properties of this ball as follows:
+  </p>
+  <p>
+    <code>
+      &nbsp;&nbsp;ball.color #=> red<br>
+      &nbsp;&nbsp;ball.shape #=> round<br>
+      &nbsp;&nbsp;ball.bounce #=> prints "Boing, boing!" to the screen
+    </code>
+  </p>
+  <p>
+    Here, the first two are properties of the ball, and the third one is a behaviour that the ball can do. If you're grammatically-minded like myself, you can think of the ball object as a noun, the first two examples above as adjectives (properties of the ball), and the third example as a verb (an action that the ball can do).
+  </p>
+  <p>
+    We've accomplished the sub-goal of creating a logical grouping of properties, and now our program behaves a little more like the real, intuitive world. But in the real world, objects tend to be only somewhat unique. There are usually plenty more copies of something, with some of them being more different than others. If that's how the world works, that's how we want our object-oriented program to work. Odds are that we're going to need several copies of this ball object. They'll have some things in common, other things different. What we want is to create a class called Ball (in Ruby, classes get capitalized as a convention). The class will have several instances (i.e. specific ball objects); those instances will have some things in common, other things not-so-in-common.
+  </p>
+  <p>
+    The code will look like:
+  </p>
+  <p>
+    <code>
+      &nbsp;&nbsp;class Ball<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;def initialize(color)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@color = color<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@shape = "round"<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;end<br><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;def color<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@color<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;end<br><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;def shape<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@shape<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;end<br><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;def bounce<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "Boing, boing!"<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;end<br>
+      &nbsp;&nbsp;end
+    </code>
+  </p>
+  <p>
+    A breakdown of what goes on in here:
+  </p>
+  <p>
+    <ol>
+      <li>
+        Initialize is a special method that gets run every time you create a new object (instance) of this class (we'll do this below). It's saying that whatever color the user enters will get stored as the color of this specific ball (the @ sign creates a variable that is associated with this specific object). Note that the instance variable for shape is not up to the user to decide; it's going to be round by virtue of being a ball.
+      </li>
+      <li>
+        The next two method definitions are just making the instance variables @color and @shape accesible to the outside world. Without these, the ball would know its own shape and color, but would be unable to answer when you asked it for them.
+      </li>
+      <li>
+        The last method definition is our verb: it "does something" by printing to the screen. This is an example of an object's behaviour rather than it's value.
+      </li>
+    </ol>
+  </p>
+  <p>
+    Once you have this class definition, you can create a few new objects of this class:
+  </p>
+  <p>
+    <code>
+      &nbsp;&nbsp;basketball = Ball.new("orange")<br>
+      &nbsp;&nbsp;tennisball = Ball.new("yellow")<br><br>
+      &nbsp;&nbsp;basketball.color #=> orange<br>
+      &nbsp;&nbsp;basketball.shape #=> round<br>
+      &nbsp;&nbsp;basketball.bounce #=> prints out "Boing, boing!"<br>
+      &nbsp;&nbsp;tennisball.color #=> yellow<br>
+      &nbsp;&nbsp;tennisball.shape #=> round<br>
+      &nbsp;&nbsp;tennisball.bounce #=> prints out "Boing, boing!"
+    </code>
+  </p>
+      
+
+</main>
+

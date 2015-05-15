@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head>
+
+  <title>The Pseudo-Coder</title>
+   <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/blog-stylesheet.css" />
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu:400italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+</head>
+
+<main>
+  <div>
+    <img src="../blog-photo-0.png">
+  </div>
+
+  <div class="title">
+    Big O
+  </div>
+
+  <div class="date">
+    05/08/2015
+  </div>
+
+  <div class="subtitle">
+    ...get your mind out of the gutter.
+  </div>
+  
+  <p>
+    Have you ever been in the middle of a long and boring task (say, pairing and folding socks out of the dryer) and wondered if there was a more efficient way to do this? Or wondered if you were getting a good return on the investment of your time?
+  </p>
+  <p>
+    No? That's just me? Ok, well, if you want to keep reading this, just pretend your answer was "yes."
+  </p>
+  <p>
+    Computer scientists wonder about this all the time, because computers handle tasks that are large enough that the question of efficiency comes into play in a big way. As in, imagine you were sorting millions (or billions, or trillions?!?) of socks. A small improvement in your method for doing it could save you years. More specifically, computer scientists concern themselves with how the amount of time spent on a task increases as the size of the task increases. This comparison is done in general terms instead of specific terms; by that I mean, the data you're working with isn't guaranteed to be in any specific order, so you're not going to get a specific number for an answer. You're going to get a general sort of trend, as in: as the data set grows in size, the time required to finish grows [at about the same rate, at a much higher rate, at a much much much higher rate, etc.]
+  </p>
+  <p>
+    For example: consider a very very simple task, such as printing data to the screen. This is actually so elemental of a task that we wouldn't worry about the time it takes in reality, but it makes a good thought experiment. So the question is: if you doubled the size of the data you want to print to the screen, what would happen to the time it takes to print it all? You might realize straight away that it would double, and you'd be correct, but let's think about how the computer handles all that data and prints it. It starts on the first character, sends it to the screen, moves on to the second character, sends it to the screen... Doing this routine twice as many times will indeed take twice as much time. If a double in data volume results in a double in time, then the increase is mathematically linear. We would write this as O(n). The O() part just lets us know that we're talking about one of these time-versus-data-volume comparisons. The n is just a variable that stands for the volume of data, but what's particular to this case is that the n isn't squared, or cubed, or multiplied by something, or the victim of any other function. In other words, if you double the n, you just get a doubling of time.
+  </p>
+  <p>
+    Let's compare that to something else that takes a greater amount of time based on the amount of data. Stop reading this for a moment and do the following math problem on a piece of paper: 26 times 34. Just so we're on the same page, please put the 26 on top. Got it? Good. Let's look at how many distinct calculations you did in that problem:
+  </p>
+  <p>
+    <ul>
+      <li>4 times 6</li>
+      <li>4 times 2</li>
+      <li>3 times 6</li>
+      <li>3 times 2</li>
+      <li>three columns worth of addition</li>
+    </ul>
+  </p>
+  <p>
+    And they said math was hard. Now hang in there, there's only one more. Please do 2,614 times 3,425 in the same way, with the 2,614 on top. When you're done, count how many multiplications were involved and how many columns of addition were involved. If you found that there were 16 distinct multiplications and 7 columns of addition, well done.
+  </p>
+  <p>
+    Let's analyze those results in terms of O(n) notation. In this situation, the n represents the number of digits in each of the two numbers. We doubled the number of digits from 2 to 4. The number of multiplications didn't double, however: they went from 4 to 16. This might appear to be a multiplication by 4, but it's actually a squaring. (If you're not sure about this, try a 6 by 6 multiplication, which will triple our initial number of digits and reveal the squaring pattern.) The number of additions increased from 3 to 7; the pattern it's following isn't obvious at first, but a little playing around will reveal it to be 2n - 1. Now consider multiplying two very large numbers, maybe with a hundred digits each. The number of multiplication steps (100<sup>2</sup> = 10,000) is going to absolutely dwarf the number of addition steps (100&times;2 - 1 = 199), and this disparity will only get worse as the numbers get bigger. For this reason, we disregard all the sources of time consumption except for the one that does the most damage. We can then say that long multiplication is a process with O(n<sup>2</sup>), meaning that as n grows in size, the time it takes to finish the problem will increase by the square of that growth. In fact, the fact that long multiplication is so time consuming (even to a computer) is the crux of the best encoding programs that exist today.
+  </p>
+
+
+      
+
+</main>
+

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<head>
+
+  <title>The Pseudo-Coder</title>
+   <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/blog-stylesheet.css" />
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu:400italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+</head>
+
+<main>
+  <div>
+    <img src="../blog-photo-0.png">
+  </div>
+
+  <div class="title">
+    JavaScript vs. Ruby
+  </div>
+
+  <div class="date">
+    05/01/2015
+  </div>
+
+  <div class="subtitle">
+    ...it's not as antagonistic as it sounds
+  </div>
+  
+  <p>
+    Today I'm going to focus on the similarities and differences between Ruby's class system and JavaScript's prototype system. Both serve to create instance(s) of an object that will inherit predefined methods and/or values from a template object. In both languages, there's some legwork devoted to creating the template, and then a small amount of code required to create new instances. The instantiation is pretty similar in syntax, so let's start with that in both languages. We'll assume we have a template from which to inherit. I'll call it My_temp in Ruby and myTemp in Javascript to comply with naming conventions.
+  </p>
+  <p>In Ruby:<br><br>
+    <code>
+      &nbsp;&nbsp;new_obj = My_temp.new(args)
+    </code>
+  </p>
+  <p>
+    In JavScript:<br><br>
+    <code>
+      &nbsp;&nbsp;var newObj = new myTemp(args);
+    </code>
+  </p>
+  <p>
+    In Ruby, the #new method has been inherited from the Class template, of which My_temp is an instance. In JavaScript, the "new" keyword is used with a constructor function. Both of these are explained in more detail below. In both languages, the args can be some number of arguments. The number and nature of the arguments is determined by the class declaration or the constructor function.
+  </p>
+  <p>
+    Let's look at how to declare a class for later instantiation in Ruby. I'm going to replace the generic args with arg1 and arg2, which will become instance variables of this class. Instance variables are variables that exist only within the scope of a particular instantiation, and are inaccessible to anything in a higher scope.<br><br>
+    <code>
+      &nbsp;&nbsp;class My_temp<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;def initialize(arg1, arg2)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@arg1 = arg1<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@arg2 = arg2<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;end<br><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;def some_method<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# some block of code that may use @arg1 and/or @arg2<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;end<br>
+      &nbsp;&nbsp;end
+    </code>
+  </p>
+  <p>
+    A few things to note about this class declaration:
+  </p>
+  <p>
+    <ol>
+      <li>
+        The arguments that you want to pass into an instantiation should be specified in the initialize method. Initialize is a reserved word, and a method with this name will be run automatically whenever a new instance of this class is created, using the inputted arguments. The initialize method is the perfect place to take these inputted arguments and save them as instance variables.
+      </li>
+      <li>
+        Instance variables are denoted by an @ as the first character of their variable names.
+      </li>
+      <li>
+        The instance variables are accessible by any method defined within this instance, but are not accessible to anything at a higher scope. Note that some_method doesn't take the instance variables as arguments, because it doesn't need to: they're defined within the scope of this method.
+      </li>
+    </ol>
+  </p>
+  <p>
+    Now we're going to create an analogous constructor function to be used as a prototype for Javascript objects. Again, I'll be replacing the generic args with arg1 and arg2.<br><br>
+    <code>
+      &nbsp;&nbsp; function myTemp(arg1, arg2) {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;this.property1 = arg1;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;this.property2 = arg2;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;this.someFunction = function() {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// some block that may use this.property1 and/or this.property2<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+      &nbsp;&nbsp;}
+    </code>
+  </p>
+  <p>
+    Note that:
+  </p>
+  <p>
+    <ol>
+      <li>
+        The arguments are now located not in an initialize method, but inside the parentheses after the prototype name.
+      </li>
+      <li>
+        Instance variables are denoted by making them a property of the parent object using the this. notation. This takes the place of the reserved starting character @.
+      </li>
+      <li>
+        Saving an inputted argument as an instance variable is done in exactly the same way as an instance method is defined, using the this. notation.
+      </li>
+      <li>
+        Just like in Ruby, any variables that start with this. are accessible to methods within the scope of this object, and don't need to be passed in explicitly as arguments.
+      </li>
+    </ol>
+  </p>
+
+      
+
+</main>
+

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+
+  <title>The Pseudo-Coder</title>
+   <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/blog-stylesheet.css" />
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu:400italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+</head>
+
+<main>
+  <div>
+    <img src="../blog-photo-0.png">
+  </div>
+
+  <div class="title">
+    Classes vs. modules 
+  </div>
+
+  <div class="date">
+    04/24/2015
+  </div>
+
+  <div class="subtitle">
+    
+  </div>
+  
+  <p>
+    An object can get its available methods in one of two main ways (other than by directly modifying it): as part of the package of methods that it gets from its class, or from a separate package that comes from a module. Getting methods from a class has already been going on in several sneaky ways under the radar: whenever a string is constructed using quotation marks, you're creating an instnance of the String class. By vitrue of being in the string class, it has methods such as #length, #reverse, #capitalize, etc. Inheriting methods in this way is one-directional from top to bottom: if I create a special type of string by making a class Silly_string and I give it some silly method like #reverse_and_capitalize, that doesn't impact its parent class of String in any way. (If you're familiar with how biological cells work, it's a bit like the central dogma of DNA.) It's a perfectly ok way to delegate which classes get access to which methods, but there are some situations where we want different behaviour.
+  </p>
+  <p>
+    Imagine you're a Ruby developer, and you've finished developing the Array, Hash, and Range classes. You realize that there are quite a few behaviours you'd like them to have in common, such as #each, #map, etc. All those good list-y methods you've grown to know and love. It would be technically and aesthetically sound to extract those list-flavoured methods into something that Array, Hash, and Range classes all have access to, rather than repeatedly defining them for each class. You want them to all be in one place that those classes can reference. Well, you could make a class called Enumerables, and then make Arrays, Hashes, and Ranges all be subclasses of Enumerables; that would cause those three to inherit all the methods that you want them to have in common. This loses a little bit of elegance, though: those list-y methods are all so useful that who knows what user defined classes might get created down the road that should have access to our list-y methods. 
+  </p>
+  <p>
+    If it seems like you might want to import that package of methods into some new class later, you make that package into a module. A module bundles those methods together, and lets them be accessible to new classes that aren't subclasses of some parent. It provides a way to "inherit" those methods without really inheriting them, that is, without being a strict child of the parent class. Really, it's like a shortcut for copy-pasting the entire under-the-hood code for the list-y methods into your new class.
+  </p>
+
+      
+
+</main>
+
