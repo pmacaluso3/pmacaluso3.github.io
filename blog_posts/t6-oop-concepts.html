@@ -24,6 +24,10 @@
   <div class="subtitle">
     
   </div>
+
+  <div class="back">
+    <a href="../tech_index.html">(...back to index)</a>
+  </div>
   
   <p>
     An object can get its available methods in one of two main ways (other than by directly modifying it): as part of the package of methods that it gets from its class, or from a separate package that comes from a module. Getting methods from a class has already been going on in several sneaky ways under the radar: whenever a string is constructed using quotation marks, you're creating an instnance of the String class. By vitrue of being in the string class, it has methods such as #length, #reverse, #capitalize, etc. Inheriting methods in this way is one-directional from top to bottom: if I create a special type of string by making a class Silly_string and I give it some silly method like #reverse_and_capitalize, that doesn't impact its parent class of String in any way. (If you're familiar with how biological cells work, it's a bit like the central dogma of DNA.) It's a perfectly ok way to delegate which classes get access to which methods, but there are some situations where we want different behaviour.

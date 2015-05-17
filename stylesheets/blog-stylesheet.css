@@ -35,4 +35,21 @@ img {
 	margin: .8em 0em .8em 0em;
 }
 
+#rightbar {
+	display: inline-block;
+	float: right;
+	width: 20%;
+	height: 100%;
+	border-left: solid 3px #999999;
+}
 
+#back {
+	font-style: oblique;
+	margin: .8em 0em .8em 0em;
+	clear: both;
+	font-size: 1.2em
+}
+
+a {
+	color: #2F4F4F;
+}
